@@ -1,0 +1,4 @@
+<!--pages/main/main.wxml-->
+<text id="title" class="tv">{{hasUserInfo}}</text>
+<text id="content" class="tv">{{userInfo}}</text>
+<text id="msg" class="tv">{{msg}}</text>

@@ -1,0 +1,19 @@
+/* pages/main/main.wxss */
+
+.tv {
+  color: brown;
+  size: 20px;
+  position: relative;
+}
+
+#title {
+  top: 20px;
+}
+
+#content {
+  top: 120px;
+}
+
+#msg {
+  top: 220px;
+}
