@@ -1,19 +1,38 @@
 /* pages/main/main.wxss */
 
 .tv {
-  color: brown;
-  size: 20px;
-  position: relative;
+    color: brown;
+    size: 20px;
+    position: absolute;
+    text-align: center;
+}
+
+#avatar {
+    position: absolute;
+    top: 300rpx;
+    height: 220rpx;
+    width: 220rpx;
+    margin: 0 auto;
+}
+
+.button {
+    color: darkslategray;
+    position: absolute;
+    text-align: center;
 }
 
 #title {
-  top: 20px;
+    top: 20px;
 }
 
 #content {
-  top: 120px;
+    top: 120px;
 }
 
 #msg {
-  top: 220px;
+    top: 220px;
+}
+
+#getUserProfile {
+    top: 120px;
 }

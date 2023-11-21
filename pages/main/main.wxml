@@ -1,4 +1,9 @@
 <!--pages/main/main.wxml-->
-<text id="title" class="tv">{{hasUserInfo}}</text>
-<text id="content" class="tv">{{userInfo}}</text>
-<text id="msg" class="tv">{{msg}}</text>
+<!-- <text id="title" class="tv">{{hasUserInfo}}</text> -->
+
+<block  wx:if="{{hasUserInfo}}">
+    <cover-image id="avatar" src="{{userInfo.avatarUrl}}"></cover-image>
+    <text id="msg" class="tv">{{msg}}</text>
+</block>
+
+<button wx:if="{{!hasUserInfo}}" id="getUserProfile" class="button" bind:tap="getUserProfileClick">getUserProfile</button>
