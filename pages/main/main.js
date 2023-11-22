@@ -9,12 +9,16 @@ Page({
     data: {
         hasUserInfo: false,
         userInfo: {},
-        msg: "msg"
+        msg: "non"
     },
 
     // https://api.kertennet.com/geography/locationInfo?lat=31.14581&lng=121.67892
     getLocation() {
+        wx.showLoading({
+            title: '加载中',
+          })          
         console.log("getLocation:")
+        var that = this
         wx.getLocation({
             type: 'wgs84',
             success(res) {
@@ -22,13 +26,35 @@ Page({
                 const longitude = res.longitude
                 const speed = res.speed
                 const accuracy = res.accuracy
-                this.setData ({
-                    msg: "" + longitude + ":" + latitude
+                // this.setData({
+                //     msg: "" + longitude + "纬度:" + latitude
+                // })
+                wx.request({
+                    url: 'https://api.kertennet.com/geography/locationInfo',
+                    data: {
+                        lat: latitude,
+                        lng: longitude
+                    },
+                    success(res) {
+                        console.log(res.data)
+                        var m = "地址：" + res.data['data']['address']
+                        console.log(m)
+                        that.setData({
+                            msg : m
+                        })
+                    },
+                    fail: (res) => {
+                        console.log("getLocation fail::" + res)
+                    },
+                    complete: (res) => {
+                        console.log("getLocation complete::" + res.errMsg)
+                        wx.hideLoading()
+                    }
                 })
-                console.log("getLocation latitude:" + latitude + " longitude:" + longitude)
+                console.log("getLocation 经度:" + longitude + " 纬度:" + latitude)
             },
-            fail: (res, a) => {
-                console.log("getLocation fail::" + res + " a:" + typeof (res))
+            fail: (res) => {
+                console.log("getLocation fail::" + res)
             },
             complete: (res) => {
                 console.log("getLocation complete::" + res.errMsg)
@@ -69,6 +95,7 @@ Page({
     onLoad(options) {
         console.log("--onLoad--")
         // this.getUserProfile()
+        this.getLocation()
     },
 
     /**
