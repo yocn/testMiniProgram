@@ -7,18 +7,46 @@
     text-align: center;
 }
 
+.wrapper {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    margin-top: 20rpx;
+    padding: 16rpx;
+}
+
+.image_icon_left {
+    height: 80rpx;
+    width: 80rpx;
+}
+
+.button {
+    flex: 0.95;
+    border-radius: 10rpx;
+    background-color: white;
+    box-shadow: 0px 5px 10px #aaa;
+    text-align: center;
+    height: 180rpx;
+    line-height: 180rpx;
+    text-align: center;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+
+.tv-inner {
+    flex: 1;
+}
+
+.container {
+    width: 100%;
+}
+
 #avatar {
     position: absolute;
     top: 300rpx;
     height: 220rpx;
     width: 220rpx;
     margin: 0 auto;
-}
-
-.button {
-    color: darkslategray;
-    position: absolute;
-    text-align: center;
 }
 
 #title {
@@ -31,8 +59,4 @@
 
 #msg {
     top: 220px;
-}
-
-#getUserProfile {
-    top: 120px;
 }

@@ -12,6 +12,30 @@ Page({
         msg: "msg"
     },
 
+    // https://api.kertennet.com/geography/locationInfo?lat=31.14581&lng=121.67892
+    getLocation() {
+        console.log("getLocation:")
+        wx.getLocation({
+            type: 'wgs84',
+            success(res) {
+                const latitude = res.latitude
+                const longitude = res.longitude
+                const speed = res.speed
+                const accuracy = res.accuracy
+                this.setData ({
+                    msg: "" + longitude + ":" + latitude
+                })
+                console.log("getLocation latitude:" + latitude + " longitude:" + longitude)
+            },
+            fail: (res, a) => {
+                console.log("getLocation fail::" + res + " a:" + typeof (res))
+            },
+            complete: (res) => {
+                console.log("getLocation complete::" + res.errMsg)
+            }
+        })
+    },
+
     getUserProfileClick() {
         this.getUserProfile()
     },
@@ -26,7 +50,7 @@ Page({
                 this.setData({
                     userInfo: res.userInfo,
                     hasUserInfo: true,
-                    msg: "avatarUrl:" + res.userInfo.avatarUrl + "\n city:" + res.userInfo.city + "\n country:" + res.userInfo.country  + "\n gender:" + res.userInfo.gender  + "\n nickName:" + res.userInfo.nickName 
+                    msg: "avatarUrl:" + res.userInfo.avatarUrl + "\n city:" + res.userInfo.city + "\n country:" + res.userInfo.country + "\n gender:" + res.userInfo.gender + "\n nickName:" + res.userInfo.nickName
                 })
                 console.log("success userInfo:" + this.userInfo)
             },
@@ -43,7 +67,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log("onLoad:::" + typeof (userInfo))
+        console.log("--onLoad--")
         // this.getUserProfile()
     },
 
