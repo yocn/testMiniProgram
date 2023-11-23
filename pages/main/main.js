@@ -12,62 +12,6 @@ Page({
         msg: "non"
     },
 
-    nati(index) {
-        wx.navigateTo({
-          url: 'url',
-        })
-    },
-
-    // https://api.kertennet.com/geography/locationInfo?lat=31.14581&lng=121.67892
-    getLocation() {
-        wx.showLoading({
-            title: '加载中',
-        })
-        console.log("getLocation:")
-        var that = this
-        wx.getLocation({
-            type: 'wgs84',
-            success(res) {
-                const latitude = res.latitude
-                const longitude = res.longitude
-                const speed = res.speed
-                const accuracy = res.accuracy
-                that.setData({
-                    msg: "纬度：" + longitude + "纬度:" + latitude
-                })
-                wx.request({
-                    url: 'https://api.kertennet.com/geography/locationInfo',
-                    data: {
-                        lat: latitude,
-                        lng: longitude
-                    },
-                    success(res) {
-                        console.log(res.data)
-                        var m = "地址：" + res.data['data']['address']
-                        console.log(m)
-                        that.setData({
-                            msg: that.msg + "\n" + m
-                        })
-                    },
-                    fail: (res) => {
-                        console.log("getLocation fail::" + res)
-                    },
-                    complete: (res) => {
-                        console.log("getLocation complete::" + res.errMsg)
-                        wx.hideLoading()
-                    }
-                })
-                console.log("getLocation 经度:" + longitude + " 纬度:" + latitude)
-            },
-            fail: (res) => {
-                console.log("getLocation fail::" + res)
-            },
-            complete: (res) => {
-                console.log("getLocation complete::" + res.errMsg)
-            }
-        })
-    },
-
     getUserProfileClick() {
         this.getUserProfile()
     },

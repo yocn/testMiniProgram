@@ -3,7 +3,9 @@
     "pages/main/main",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/location/getLocation"
+    "pages/userInfo/userInfo",
+    "pages/location/getLocation",
+    "pages/excel/excelPage"
   ],
   "requiredPrivateInfos": [
     "getLocation"

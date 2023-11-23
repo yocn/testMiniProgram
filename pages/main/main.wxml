@@ -1,12 +1,9 @@
 <!--pages/main/main.wxml-->
 <view class="container">
-    <!-- <block wx:if="{{hasUserInfo}}">
-        <cover-image id="avatar" src="{{userInfo.avatarUrl}}"></cover-image>
-    </block> -->
+    <navBar title='home' background='#fff' bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
 
-    <homeView imgUrl="../../image/icon0.png" title="1" naviPath="/pages/location/getLocation" />
-    <homeView imgUrl="../../image/icon1.png" title="2" naviPath="/pages/location/getLocation" />
-    <homeView imgUrl="../../image/icon2.png" title="3" naviPath="/pages/location/getLocation" />
-    <homeView imgUrl="../../image/icon3.png" title="4" naviPath="/pages/location/getLocation" />
+    <homeView imgUrl="../../image/icon0.png" title="获取位置" naviPath="/pages/location/getLocation" />
+    <homeView imgUrl="../../image/icon1.png" title="用户信息" naviPath="/pages/userInfo/userInfo" />
+    <homeView imgUrl="../../image/icon2.png" title="EXCEL" naviPath="/pages/excel/excelPage" />
 
 </view>

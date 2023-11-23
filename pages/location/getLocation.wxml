@@ -1,2 +1,9 @@
 <!--pages/location/getLocation.wxml-->
-<text>pages/location/getLocation.wxml</text>
+
+<view class="root">
+
+    <navBar title='home' background='#fff' back="{{true}}" home="{{true}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+    
+    <text class="msg">{{msg}}</text>
+    <button class="getLocation" bind:tap="getLocation">获取位置</button>
+</view>
