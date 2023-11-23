@@ -1,0 +1,5 @@
+<!--components/home/homeView.wxml-->
+<view class="wrapper" bind:tap="nati">
+    <image class="image-icon" src="{{imgUrl}}"></image>
+    <text class="tv-inner">{{title}}</text>
+</view>

@@ -1,25 +1,12 @@
 <!--pages/main/main.wxml-->
-<view id="root" >
-    <scroll-view id="scrollarea" scroll-y type="list">
-        <view class="container">
-            <block wx:if="{{hasUserInfo}}">
-                <cover-image id="avatar" src="{{userInfo.avatarUrl}}"></cover-image>
-            </block>
+<view class="container">
+    <!-- <block wx:if="{{hasUserInfo}}">
+        <cover-image id="avatar" src="{{userInfo.avatarUrl}}"></cover-image>
+    </block> -->
 
-            <view class="wrapper" id="wrapper-1">
-                <view wx:if="{{!hasUserInfo}}" id="getUserProfile" class="button" bind:tap="getUserProfileClick">
-                    <image class="image_icon_left" src="../../image/icon0.png"></image>
-                    <text id="location" class="tv-inner">获取位置</text>
-                </view>
-            </view>
-            <view class="wrapper" id="wrapper-2">
-                <view id="getlocation" class="button" bind:tap="getLocation">
-                    <image class="image_icon_left" src="../../image/icon1.png"></image>
-                    <text id="location-1" class="tv-inner">获取天气</text>
-                </view>
-            </view>
-        </view>
+    <homeView imgUrl="../../image/icon0.png" title="1" naviPath="/pages/location/getLocation" />
+    <homeView imgUrl="../../image/icon1.png" title="2" naviPath="/pages/location/getLocation" />
+    <homeView imgUrl="../../image/icon2.png" title="3" naviPath="/pages/location/getLocation" />
+    <homeView imgUrl="../../image/icon3.png" title="4" naviPath="/pages/location/getLocation" />
 
-        <text id="msg" class="tv">{{msg}}</text>
-    </scroll-view>
 </view>

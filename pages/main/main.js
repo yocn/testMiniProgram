@@ -12,11 +12,17 @@ Page({
         msg: "non"
     },
 
+    nati(index) {
+        wx.navigateTo({
+          url: 'url',
+        })
+    },
+
     // https://api.kertennet.com/geography/locationInfo?lat=31.14581&lng=121.67892
     getLocation() {
         wx.showLoading({
             title: '加载中',
-          })          
+        })
         console.log("getLocation:")
         var that = this
         wx.getLocation({
@@ -26,9 +32,9 @@ Page({
                 const longitude = res.longitude
                 const speed = res.speed
                 const accuracy = res.accuracy
-                // this.setData({
-                //     msg: "" + longitude + "纬度:" + latitude
-                // })
+                that.setData({
+                    msg: "纬度：" + longitude + "纬度:" + latitude
+                })
                 wx.request({
                     url: 'https://api.kertennet.com/geography/locationInfo',
                     data: {
@@ -40,7 +46,7 @@ Page({
                         var m = "地址：" + res.data['data']['address']
                         console.log(m)
                         that.setData({
-                            msg : m
+                            msg: that.msg + "\n" + m
                         })
                     },
                     fail: (res) => {
@@ -95,7 +101,7 @@ Page({
     onLoad(options) {
         console.log("--onLoad--")
         // this.getUserProfile()
-        this.getLocation()
+        // this.getLocation()
     },
 
     /**
