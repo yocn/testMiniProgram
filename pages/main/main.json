@@ -2,6 +2,7 @@
     "navigationBarTitleText": "首页",
     "usingComponents": {
         "homeView": "../../components/home/homeView",
-        "navBar": "../../components/navBar/navBar"
+        "navBar": "../../components/navBar/navBar",
+        "l-button":"/miniprogram_npm/lin-ui/button/index"
     }
 }

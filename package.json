@@ -1,0 +1,14 @@
+{
+  "name": "testminiprogram",
+  "version": "1.0.0",
+  "description": "npm for testminigram",
+  "main": "app.js",
+  "scripts": {
+    "test": "no"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lin-ui": "^0.9.13"
+  }
+}
